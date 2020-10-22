@@ -1,0 +1,28 @@
+
+$.ajax({
+  type: 'GET',
+  url: "/static_pages/get_data",
+  // data: { id: 'relevant id here when there will be some' },
+  success: function (values) {
+
+    data = [{
+      type: 'scatterpolar',
+      theta: values[1],
+      r: values[0],
+      fill: 'toself'
+    }]
+
+    layout = {
+      polar: {
+        radialaxis: {
+          visible: true,
+          range: [0, values[0].max]
+        }
+      },
+      showlegend: false
+    }
+
+    Plotly.newPlot("graph", data, layout)
+
+  }
+});
