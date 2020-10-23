@@ -8,7 +8,7 @@ environment.plugins.append(
     $: "jquery",
     jQuery: "jquery",
     Popper: ["popper.js", "default"], // for Bootstrap 4
-    // Plotly: "plotly.js"
+    Plotly: "plotly.js"
   })
 );
 
