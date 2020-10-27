@@ -1,24 +1,12 @@
-# README
+# App Learn Webpack Plotly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a toy project meant to help me learn webpack with rails and using a js plotting lib (plotly.js).
 
-Things you may want to cover:
+known bug: graph does **not** show in prod (Plotly not correctly imported). It does work locally.
+## On heroku
 
-* Ruby version
+[app-learn-webpack-plotly.herokuapp.com](https://app-learn-webpack-plotly.herokuapp.com/) (synced with `master` branch)
 
-* System dependencies
+## Locally
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`bundle install` and use as a rails app (consider using also `./bin/webpack-dev-server` as the app uses webpack)
