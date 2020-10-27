@@ -56,3 +56,9 @@ gem 'tzinfo-data', '>= 1.2016.7'
 group :development do
   gem 'solargraph'
 end
+
+# Internationalization
+gem 'rails-i18n'
+
+# https://github.com/iain/http_accept_language
+gem 'http_accept_language'
