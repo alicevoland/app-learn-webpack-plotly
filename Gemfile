@@ -70,3 +70,9 @@ group :development, :test do
   # ENV variables in prod, .env in dev
   gem 'dotenv-rails'
 end
+
+# For seeds
+gem 'faker'
+
+# Pretty print in rails console
+gem 'table_print'
