@@ -1,0 +1,20 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Ma roue de la vie </h1>
+      <p class="lead"> Version du <%= l @wheel_value.created_at %> </p>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
+
+  <h1> Détails de la roue de la vie </h1>
+
+  <p> Modèle : <%= @wheel_value.wheel_model.name %> : </p>
+  <p> Date : <%= l @wheel_value.created_at %> </p>
+  <%= content_tag(:div, '',
+    data: { "wheel-value-id": @wheel_value.id.to_s, "user-id": @user.id.to_s },
+  class: "wheel-value-graph") %>
+
+</div>

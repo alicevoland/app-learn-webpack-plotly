@@ -30,6 +30,6 @@ test_wheel_model = WheelModel.create(
 test_wheel_value = WheelValue.create(
   wheel_model: standard_wheel_model,
   user: mat_user,
-  values: [3, 1, 2, 1, 2, 1, 2, 1, 2],
+  values: [3, 1, 2, 1, 2, 1, 2, 1, 3],
   comments: %w[Aa Bb Cc Bb Cc Bb Cc Bb Cc]
 )

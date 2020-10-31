@@ -21,8 +21,8 @@
       <% @user.wheel_values.each do |wheel_value| %>
         <tr>
           <td class="px-2"> <%= l wheel_value.created_at %> </td>
-          <td class="px-2"> <%= link_to "#{wheel_value.wheel_model.name}", wheel_model_path(wheel_value.wheel_model) %> </td>
-          <td class="px-2"> link </td>
+          <td class="px-2"> <%= link_to wheel_value.wheel_model.name, wheel_model_path(wheel_value.wheel_model) %> </td>
+          <td class="px-2"> <%= link_to "Voir la roue", user_wheel_value_path(@user, wheel_value), class: "btn btn-outline-primary" %> </td>
         </tr>
       <% end %>
     </tbody>

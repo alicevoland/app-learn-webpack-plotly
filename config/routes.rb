@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   resources :users, only: %i[show] do
     resources :wheel_values
   end
-
-  # end # scope locale
 end
