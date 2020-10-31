@@ -1,15 +1,34 @@
 const { environment } = require('@rails/webpacker')
-const webpack = require("webpack");
+const webpack = require("webpack")
 
-// Add an additional plugin of your choosing : ProvidePlugin
-environment.plugins.append(
-  "Provide",
-  new webpack.ProvidePlugin({
-    $: "jquery",
-    jQuery: "jquery",
-    Popper: ["popper.js", "default"], // for Bootstrap 4
-    Plotly: "plotly.js"
-  })
-);
+environment.plugins.append("Provide", new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery',
+  "window.jQuery": "jquery",
+  "window.$": "jquery",
+  Popper: ['popper.js', 'default'],
+  Plotly: "plotly.js"
+}))
+
+environment.config.merge({
+  module: {
+    rules: [
+      {
+        test: require.resolve('jquery'),
+        loader: 'expose-loader',
+        options: {
+          exposes: ['$', 'jQuery'],
+        },
+      },
+      {
+        test: require.resolve('@rails/ujs'),
+        loader: 'expose-loader',
+        options: {
+          exposes: ['Rails'],
+        },
+      }
+    ]
+  }
+})
 
 module.exports = environment

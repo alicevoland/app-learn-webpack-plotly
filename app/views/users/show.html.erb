@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h1> Profil : <%= @user.email %> </h1>
+
+  <h2> Roues de la vie : </h2>
+
+  <ul>
+    <% @user.wheel_values.each do |wheel_value| %>
+      <li>
+        <%= wheel_value.wheel_model.name %> (<%= (l wheel_value.created_at) %>)
+      </li>
+    <% end %>
+  </ul>
+</div>

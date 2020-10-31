@@ -11,6 +11,7 @@
   <body>
 
     <%= render partial: 'shared/navbar'%>
+    <%= yield :jumbotron %>
     <%= render partial: 'shared/alerts'%>
 
     <%= content_for?(:application) ? (yield :application) : (yield) %>

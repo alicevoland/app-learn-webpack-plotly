@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
                   else
                     params[:locale]
                   end
+    I18n.locale = :fr
   end
 
   def layout_by_resource

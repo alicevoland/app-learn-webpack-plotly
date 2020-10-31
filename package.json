@@ -7,6 +7,8 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.3",
+    "bootswatch": "^4.5.3",
+    "expose-loader": "^1.0.1",
     "ify-loader": "^1.1.0",
     "jquery": "^3.5.1",
     "plotly.js": "^1.57.1",
