@@ -1,14 +1,30 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Espace personnel </h1>
+      <p class="lead"> <%= @user.email %> </p>
+    </div>
+  </div>
+<% end %>
+
 <div class="container">
 
-  <h1> Profil : <%= @user.email %> </h1>
+  <h2> Mes roues de la vie </h2>
 
-  <h2> Roues de la vie : </h2>
-
-  <ul>
-    <% @user.wheel_values.each do |wheel_value| %>
-      <li>
-        <%= wheel_value.wheel_model.name %> (<%= (l wheel_value.created_at) %>)
-      </li>
-    <% end %>
-  </ul>
+  <table class="my-3">
+    <tbody>
+      <tr>
+        <th class="px-2"> Date </th>
+        <th class="px-2"> Modèle de roue </th>
+        <th class="px-2"> </th>
+      </tr>
+      <% @user.wheel_values.each do |wheel_value| %>
+        <tr>
+          <td class="px-2"> <%= l wheel_value.created_at %> </td>
+          <td class="px-2"> <%= link_to "#{wheel_value.wheel_model.name}", wheel_model_path(wheel_value.wheel_model) %> </td>
+          <td class="px-2"> link </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

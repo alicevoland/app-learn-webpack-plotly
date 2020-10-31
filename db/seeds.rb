@@ -15,8 +15,15 @@ mat_user = User.create(email: 'matuser@yopmail.com', password: 'matuser')
 
 standard_wheel_model = WheelModel.create(
   name: 'Standard',
-  description: 'Simple Wheel Of Life',
+  description: 'Modèle standard de la roue de la vie',
   labels: ['Finances', 'Carrière', 'Environnement', 'Loisirs', 'Développement personnel', 'Conjoint / Couple', 'Amis / Famille', 'Santé / Vitalité', 'Finances'],
+  maximum: 5
+)
+
+test_wheel_model = WheelModel.create(
+  name: 'Test',
+  description: 'Modèle TEST de la roue de la vie',
+  labels: ['TEST axis 1', 'TEST axis 2', 'TEST axis 3', 'TEST axis 4', 'TEST axis 1'],
   maximum: 5
 )
 

@@ -1,8 +1,17 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Roue de la vie, modèle : <%= @wheel_model.name %> </h1>
+      <p class="lead"> Ce site vous permet de réaliser et suivre l'évolution de votre roue de la vie !</p>
+    </div>
+  </div>
+<% end %>
+
 <div class="container">
 
   <h1> Détails du modèle </h1>
 
-  <h2> <%= @wheel_model.name %> </h2>
+  <p> <%= @wheel_model.name %> : </p>
   <p> <%= @wheel_model.description %> </p>
   <%= content_tag(:div, '',
     data: { "wheel-model-id": @wheel_model.id.to_s },
