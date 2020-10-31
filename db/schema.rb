@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(version: 2020_10_29_204928) do
   create_table "wheel_values", force: :cascade do |t|
     t.bigint "wheel_model_id"
     t.bigint "user_id"
-    t.integer "values", default: [], array: true
+    t.integer "current_values", default: [], array: true
+    t.integer "goal_values", default: [], array: true
     t.string "comments", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

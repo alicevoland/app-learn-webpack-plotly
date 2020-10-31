@@ -4,7 +4,8 @@ class CreateWheelValues < ActiveRecord::Migration[6.0]
       t.belongs_to :wheel_model
       t.belongs_to :user
 
-      t.integer :values, array: true, default: []
+      t.integer :current_values, array: true, default: []
+      t.integer :goal_values, array: true, default: []
       t.string :comments, array: true, default: []
 
       t.timestamps

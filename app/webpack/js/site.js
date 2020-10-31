@@ -16,8 +16,8 @@ $(function () {
 
         var data = [{
           type: 'scatterpolar',
-          theta: wheel_model.labels,
-          r: Array(wheel_model.labels.length).fill(wheel_model.maximum),
+          theta: wheel_model.labels.concat([wheel_model.labels[0]]),
+          r: Array(wheel_model.labels.length + 1).fill(wheel_model.maximum),
           fill: 'toself'
         }]
 
@@ -44,13 +44,19 @@ $(function () {
       success: function (wheels) {
         var wheel_value = wheels[0]
         var wheel_model = wheels[1]
-        console.log(wheels)
 
         var data = [{
           type: 'scatterpolar',
-          theta: wheel_model.labels,
-          r: wheel_value.values,
-          fill: 'toself'
+          theta: wheel_model.labels.concat([wheel_model.labels[0]]),
+          r: wheel_value.goal_values.concat([wheel_value.goal_values[0]]),
+          fill: 'toself',
+          name: 'Objectif'
+        }, {
+          type: 'scatterpolar',
+          theta: wheel_model.labels.concat([wheel_model.labels[0]]),
+          r: wheel_value.current_values.concat([wheel_value.current_values[0]]),
+          fill: 'toself',
+          name: 'Actuel'
         }]
 
         var layout = {

@@ -11,10 +11,10 @@
 
   <h1> Détails de la roue de la vie </h1>
 
-  <p> Modèle : <%= @wheel_value.wheel_model.name %> : </p>
+  <p> Modèle : <%= link_to @wheel_value.wheel_model.name, wheel_model_path(@wheel_value.wheel_model) %> </p>
   <p> Date : <%= l @wheel_value.created_at %> </p>
   <%= content_tag(:div, '',
     data: { "wheel-value-id": @wheel_value.id.to_s, "user-id": @user.id.to_s },
-  class: "wheel-value-graph") %>
+  class: "wheel-value-graph col-12 lg-col-8") %>
 
 </div>
