@@ -1,0 +1,11 @@
+<div class="container">
+
+  <h1> Détails du modèle </h1>
+
+  <h2> <%= @wheel_model.name %> </h2>
+  <p> <%= @wheel_model.description %> </p>
+  <%= content_tag(:div, '',
+    data: { "wheel-model-id": @wheel_model.id.to_s },
+  class: "wheel-model-graph") %>
+
+</div>

@@ -16,13 +16,13 @@ mat_user = User.create(email: 'matuser@yopmail.com', password: 'matuser')
 standard_wheel_model = WheelModel.create(
   name: 'Standard',
   description: 'Simple Wheel Of Life',
-  labels: %w[A B C],
+  labels: ['Finances', 'Carrière', 'Environnement', 'Loisirs', 'Développement personnel', 'Conjoint / Couple', 'Amis / Famille', 'Santé / Vitalité', 'Finances'],
   maximum: 5
 )
 
 test_wheel_value = WheelValue.create(
   wheel_model: standard_wheel_model,
   user: mat_user,
-  values: [3, 1, 2],
-  comments: %w[Aa Bb Cc]
+  values: [3, 1, 2, 1, 2, 1, 2, 1, 2],
+  comments: %w[Aa Bb Cc Bb Cc Bb Cc Bb Cc]
 )

@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1> Les modèles de roue de la vie </h1>
+
+  <% @wheel_models.each do |model| %>
+
+    <h2> <%= model.name %> </h2>
+    <p> <%= model.description %> </p>
+    <p> <%= link_to "Voir le modlèle", wheel_model_path(model), class: "btn btn-outline-primary" %> </p>
+
+  <% end %>
+
+</div>

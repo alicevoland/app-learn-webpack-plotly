@@ -25,7 +25,7 @@ module App
     config.load_defaults 6.0
 
     # Locales
-    config.i18n.available_locales %i[fr en]
+    config.i18n.available_locales %i[fr]
     config.i18n.default_locale = :fr
 
     # Settings in config/environments/* take precedence over those specified here.
