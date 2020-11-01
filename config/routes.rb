@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :wheel_models, only: %i[index show]
   resources :users, only: %i[show] do
     resources :wheel_values
+    resources :coachings
   end
 end

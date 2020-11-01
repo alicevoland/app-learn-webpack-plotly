@@ -9,6 +9,7 @@
 User.destroy_all
 WheelModel.destroy_all
 WheelValue.destroy_all
+Coaching.destroy_all
 puts 'DB cleaned up'
 
 ewen_user = User.create(email: 'ewencoach@yopmail.com', password: 'ewencoach')
@@ -41,3 +42,9 @@ test_wheel_value = WheelValue.create(
   comments: %w[Aa Bb Cc Bb Cc Bb Cc Bb]
 )
 puts "Created WheelValue: for user #{test_wheel_value.user.email} with model #{test_wheel_value.wheel_model.name}"
+
+coaching = Coaching.create(
+  coach: ewen_user,
+  student: mat_user
+)
+puts "Created Coaching, student is #{mat_user.email}, and coach is #{ewen_user.email}"
