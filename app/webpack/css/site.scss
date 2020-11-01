@@ -2,18 +2,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";
 
-footer {
-  @extend .py-3, .bg-primary;
-}
-
-footer > div {
-  @extend .container;
-}
-
-footer p, footer a {
-  @extend .m-0, .text-center, .text-white;
-}
-
 html, body {
   height: 100%;
 }
@@ -22,6 +10,19 @@ body {
   flex-direction: column;
 }
 
+
 footer {
-  margin-top: auto;
+  @extend .bg-secondary;
+}
+
+.jumbotron {
+  @extend .bg-light;
+}
+
+.navbar {
+  @extend .navbar-dark, .bg-primary;
+}
+
+.nav-item {
+  // @extend .active;
 }

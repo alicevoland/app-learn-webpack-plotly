@@ -16,7 +16,7 @@
   <h4> Faire une nouvelle roue ? </h4>
 
   <%= form_with(url: "/users/#{current_user.id}/wheel_values/new", method: "get", local: true) do %>
-    <%= select_tag(:wheel_model_id, options_for_select(@wheel_model_options)) %>
+    Choisir un modèle <%= select_tag(:wheel_model_id, options_for_select(@wheel_model_options)) %> et c'est parti 
     <%= submit_tag "Faire une roue !", class: "btn btn-success" %>
   <% end %>
 
