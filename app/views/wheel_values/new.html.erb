@@ -1,0 +1,58 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Création d'une nouvelle roue de la vie </h1>
+      <p class="lead"> Modèle utilisé : <%= @wheel_value.wheel_model.name %> pour <%= @wheel_value.user.email %></p>
+      <p class="lead">
+        <%= link_to "Retour sur mes roues", user_wheel_values_path(@user), class: "btn btn-outline-primary btn-lg" %>
+      </p>
+    </div>
+  </div>
+<% end %>
+<!-- container -->
+<div class="container">
+
+  <% if @wheel_value.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <p>La création de la roue de la vie n'a pu aboutir pour les raisons suivantes : </p>
+    </div>
+    <div class="alert alert-warning" role="alert">
+      <ul>
+        <% @wheel_value.errors.full_messages.each do |message| %>
+          <li> <%= message %> </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: [@user, @wheel_value], local: true do |form| %>
+
+    <div class="form-group row">
+      <div class="col-lg-3"> <%= form.label :name, "Nom de l'établissement" %> </div>
+      <div class="col-lg-9">
+        <%= form.text_field :name, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-lg-3"> <%= form.label :address, "Adresse de l'établissement" %> </div>
+      <div class="col-lg-9">
+        <%= form.text_field :address, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-lg-3"> <%= form.label :phone, "Numéro de téléphone" %> </div>
+      <div class="col-lg-9">
+        <%= form.text_field :phone, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="actions my-4 row justify-content-center">
+      <%= form.submit "Valider", class: "btn btn-outline-success btn-block col-lg-9 mb-4", style: "margin: 10px 0;" %>
+    </div>
+
+  <% end %>
+
+</div>
+<!-- /container -->
