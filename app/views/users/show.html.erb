@@ -1,7 +1,7 @@
 <% content_for :jumbotron do %>
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-4"> Espace personnel </h1>
+      <h1 class="display-4"> <%= @coach_view ? "Mon élève" : "Espace personnel" %> </h1>
       <p class="lead"> <%= @user.email %> </p>
     </div>
   </div>
@@ -16,22 +16,24 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"> Mes roues de la vie </h5>
-          <p class="card-text"> Faire une nouvelle roue de la vie ou bien consulter votre historique complet </p>
-          <%= link_to "Voir mes roues", user_wheel_values_path(@user), class: "btn btn-primary" %>
+          <h5 class="card-title"> <%= @coach_view ? "Ses" : "Mes" %> roues de la vie </h5>
+          <p class="card-text"> <%= @coach_view ? "Ses roues de la vie" : "Faire une nouvelle roue de la vie ou bien consulter votre historique complet" %> </p>
+          <%= link_to "Voir #{@coach_view ? "ses" : "mes"} roues", user_wheel_values_path(@user), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"> Mes relation de coaching </h5>
-          <p class="card-text"> Mes coachs et/ou mes élèves </p>
-          <%= link_to "Voir mes coachings", user_coachings_path(@user), class: "btn btn-primary" %>
+    <% unless @coach_view %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> Mes relation de coaching </h5>
+            <p class="card-text"> Mes coachs et/ou mes élèves </p>
+            <%= link_to "Voir mes coachings", user_coachings_path(@user), class: "btn btn-primary" %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="col-sm-6">
       <div class="card">

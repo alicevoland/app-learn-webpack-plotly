@@ -1,10 +1,10 @@
 <% content_for :jumbotron do %>
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-4"> Mes roues de la vie </h1>
+      <h1 class="display-4"> <%= @coach_view ? "Ses" : "Mes" %> roues de la vie </h1>
       <p class="lead"> <%= @user.email %> </p>
       <p class="lead d-flex">
-        <%= link_to "Retour sur mon profil", user_path(current_user), class: "btn btn-outline-primary btn-lg" %>
+        <%= link_to "Retour sur #{@coach_view ? "son" : "mon"} profil", user_path(current_user), class: "btn btn-outline-primary btn-lg" %>
       </p>
     </div>
   </div>
@@ -13,14 +13,16 @@
 <!-- container -->
 <div class="container">
 
-  <h4> Faire une nouvelle roue ? </h4>
+  <% unless @coach_view %>
+    <h4> Faire une nouvelle roue ? </h4>
 
-  <%= form_with(url: "/users/#{current_user.id}/wheel_values/new", method: "get", local: true) do %>
-    Choisir un modèle <%= select_tag(:wheel_model_id, options_for_select(@wheel_model_options)) %> et c'est parti 
-    <%= submit_tag "Faire une roue !", class: "btn btn-success" %>
+    <%= form_with(url: "/users/#{@user.id}/wheel_values/new", method: "get", local: true) do %>
+      Choisir un modèle <%= select_tag(:wheel_model_id, options_for_select(@wheel_model_options)) %> et c'est parti 
+      <%= submit_tag "Faire une roue !", class: "btn btn-success" %>
+    <% end %>
   <% end %>
 
-  <h4 class="my-4"> Mon historique </h4>
+  <h4 class="my-4"> <%= @coach_view ? "Son" : "Mon" %> historique </h4>
 
   <!-- row -->
   <div class="row">

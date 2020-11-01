@@ -4,19 +4,8 @@ class CoachingsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @coaches = @user.coaches
-    @students = @user.students
-  end
-
-  def show
-    @user = User.find(params[:user_id])
-    @coaching = Coaching.find(params[:id])
-    @student = @coaching.student
-    @coach = @coaching.coach
-    unless @user == @student || @user == @coach
-      flash[:danger] = 'Vous ne pouvez pas accéder aux informations de ce compte'
-      redirect_to :root
-    end
+    @coach_coachings = @user.coach_coachings
+    @student_coachings = @user.student_coachings
   end
 
   private

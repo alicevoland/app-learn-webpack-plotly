@@ -14,6 +14,14 @@ class User < ApplicationRecord
 
   after_create :welcome_email
 
+  def coach_of?(user)
+    students.any? { |s| s == user }
+  end
+
+  def student_of_current_user
+    coaches.any? { |c| c == current_user }
+  end
+
   private
 
   def welcome_email

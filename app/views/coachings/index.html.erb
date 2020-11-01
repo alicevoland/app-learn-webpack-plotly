@@ -19,11 +19,11 @@
   <div class="row">
 
     <!-- wheel_value -->
-    <% @coaches.each do |coach| %>
+    <% @student_coachings.each do |coaching| %>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"> <%= coach.email %> </h5>
+            <h5 class="card-title"> <%= coaching.coach.email %> </h5>
             <p class="card-text"> Mon coach </p>
           </div>
         </div>
@@ -40,12 +40,13 @@
   <div class="row">
 
     <!-- wheel_value -->
-    <% @students.each do |student| %>
+    <% @coach_coachings.each do |coaching| %>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"> <%= student.email %> </h5>
+            <h5 class="card-title"> <%= coaching.student.email %> </h5>
             <p class="card-text"> Mon élève </p>
+            <%= link_to "Voir ses informations", user_path(coaching.student), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
