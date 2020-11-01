@@ -8,6 +8,24 @@ class CoachingsController < ApplicationController
     @student_coachings = @user.student_coachings
   end
 
+  def create
+    @user = User.find(params[:user_id])
+    @coach_coachings = @user.coach_coachings
+    @student_coachings = @user.student_coachings
+    @coach = User.find_by email: params[:coach_email]
+    @coaching = Coaching.new(
+      student: @user,
+      coach: @coach
+    )
+    if @coaching.save
+      flash[:success] = 'Votre coach a bien été ajouté !'
+      redirect_to user_coachings_path(@user)
+    else
+      flash[:danger] = 'Une erreur est survenue'
+      render :index
+    end
+  end
+
   private
 
   def is_my_profile
