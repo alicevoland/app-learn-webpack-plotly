@@ -52,9 +52,11 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Form the forgotten password :
-  config.action_mailer.default_url_options = { host: ENV['HOSTNAME'] }
+  # Adding a link between Mailer and Devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # Mailer with IONOS SMTP
-  config.action_mailer.delivery_method = :smtp
+  # Adding Letter opened to avoid sending real mails in develop environment
+  config.action_mailer.delivery_method = :letter_opener
+
+  config.action_mailer.perform_deliveries = true
 end

@@ -69,6 +69,8 @@ gem 'devise'
 group :development, :test do
   # ENV variables in prod, .env in dev
   gem 'dotenv-rails'
+  # Avoid real mails in dev
+  gem 'letter_opener'
 end
 
 # For seeds
