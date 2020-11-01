@@ -29,11 +29,12 @@ class WheelValuesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
+    @wheel_model = WheelModel.find(params[:wheel_model_id])
     @wheel_value = @user.wheel_values.new(wheel_value_params)
 
     if @wheel_value.save
       flash[:success] = 'Votre roue de la vie a été créée avec succès !'
-      redirect_to :index
+      redirect_to user_wheel_values_path(@user)
     else
       render :new
     end
@@ -42,7 +43,7 @@ class WheelValuesController < ApplicationController
   private
 
   def wheel_value_params
-    params.require(:wheel_value).permit(:wheel_model_id, :current_values, :goal_values, :comments)
+    params.permit(:wheel_model_id, :user_id, comments: [], goal_values: [], current_values: [])
   end
 
   def is_my_profile

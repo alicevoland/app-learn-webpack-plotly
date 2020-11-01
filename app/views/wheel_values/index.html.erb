@@ -5,7 +5,6 @@
       <p class="lead"> <%= @user.email %> </p>
       <p class="lead d-flex">
         <%= link_to "Retour sur mon profil", user_path(current_user), class: "btn btn-outline-primary btn-lg" %>
-        <%= link_to "Faire une nouvelle roue de la vie !", new_user_wheel_value_path(current_user), class: "btn btn-primary btn-lg ml-auto" %>
       </p>
     </div>
   </div>
@@ -27,7 +26,7 @@
   <div class="row">
 
     <!-- wheel_value -->
-    <% @user.wheel_values.each do |wheel_value| %>
+    <% @wheel_values.each do |wheel_value| %>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">

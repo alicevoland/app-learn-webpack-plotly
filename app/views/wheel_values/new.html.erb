@@ -25,34 +25,40 @@
     </div>
   <% end %>
 
-  <%= form_with model: [@user, @wheel_value], local: true do |form| %>
+  <%# <%= form_with model: [@user, @wheel_value], local: true do |form| %>
+    <%= form_with(url: "/users/#{current_user.id}/wheel_values", method: "post", local: true) do |form| %>
 
-    <div class="form-group row">
-      <div class="col-lg-3"> <%= form.label :name, "Nom de l'établissement" %> </div>
-      <div class="col-lg-9">
-        <%= form.text_field :name, class: "form-control"  %>
+      <%= form.hidden_field :wheel_model_id, value: "#{@wheel_model.id}" %>
+
+      <div class="form-group row">
+        <div class="col-6 col-lg-3"> Axe </div>
+        <div class="col-3 col-lg-1"> Actuel </div>
+        <div class="col-3 col-lg-1"> Objectif </div>
+        <div class="col-12 col-lg-6">Commentaire </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <div class="col-lg-3"> <%= form.label :address, "Adresse de l'établissement" %> </div>
-      <div class="col-lg-9">
-        <%= form.text_field :address, class: "form-control"  %>
+      <% @wheel_model.labels.each_with_index do |label, index| %>
+
+        <div class="form-group row">
+          <div class="col-6 col-lg-3 my-1"> <%= label %> </div>
+          <div class="col-3 col-lg-1 my-1">
+            <%= form.select 'current_values[]', options_for_select((0..@wheel_model.maximum).map { |i| [i.to_s,i] }, @wheel_value.current_values[index]), {multiple: true} %>
+          </div>
+          <div class="col-3 col-lg-1 my-1">
+            <%= form.select 'goal_values[]', options_for_select((0..@wheel_model.maximum).map { |i| [i.to_s,i] }, @wheel_value.goal_values[index]), {multiple: true} %>
+          </div>
+          <div class="col-12 col-lg-7 my-1">
+            <%= form.text_field 'comments[]', value: @wheel_value.comments[index], class: "form-control" %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <div class="actions row">
+        <%= form.submit "Valider", class: "btn btn-success btn-block col-6 col-lg-3 my-2" %>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <div class="col-lg-3"> <%= form.label :phone, "Numéro de téléphone" %> </div>
-      <div class="col-lg-9">
-        <%= form.text_field :phone, class: "form-control"  %>
-      </div>
-    </div>
+    <% end %>
 
-    <div class="actions my-4 row justify-content-center">
-      <%= form.submit "Valider", class: "btn btn-outline-success btn-block col-lg-9 mb-4", style: "margin: 10px 0;" %>
-    </div>
-
-  <% end %>
-
-</div>
-<!-- /container -->
+  </div>
+  <!-- /container -->
