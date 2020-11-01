@@ -5,4 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :wheel_values
+
+  after_create :welcome_email
+
+  private
+
+  def welcome_email
+    # Deliver the mail to the user
+    # --------------------------------
+    # See https://stackoverflow.com/questions/8709984/how-to-catch-error-exception-in-actionmailer
+
+    UserMailer.with(user: self).welcome_email.deliver_now
+  rescue Exception => e
+  end
 end
