@@ -20,4 +20,6 @@
     data: { "wheel-value-id": @wheel_value.id.to_s, "user-id": @user.id.to_s },
   class: "wheel-value-graph col-12 lg-col-8") %>
 
+  <%= link_to "Supprimer cette roue de la vie", user_wheel_value_path(@user, @wheel_value), data: {confirm: "Etes-vous sûr ?"}, method: :delete, :class => "btn btn-danger btn-lg btn-block my-4" %>
+
 </div>

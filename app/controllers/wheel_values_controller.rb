@@ -40,6 +40,17 @@ class WheelValuesController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @wheel_value = @user.wheel_values.find(params[:id])
+    if @wheel_value.destroy
+      flash[:success] = 'Votre roue de la vie a été supprimée avec succès !'
+    else
+      flash[:danger] = 'Une erreur est survenue'
+    end
+    redirect_to user_wheel_values_path(@user)
+  end
+
   private
 
   def wheel_value_params
