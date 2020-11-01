@@ -3,6 +3,9 @@
     <div class="container">
       <h1 class="display-4"> Ma roue de la vie </h1>
       <p class="lead"> Version du <%= l @wheel_value.created_at %> </p>
+      <p class="lead">
+        <%= link_to "Retour sur mes roues", user_wheel_values_path(@user), class: "btn btn-outline-primary btn-lg" %>
+      </p>
     </div>
   </div>
 <% end %>

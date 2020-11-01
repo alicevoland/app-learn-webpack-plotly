@@ -1,3 +1,27 @@
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";
+
+footer {
+  @extend .py-3, .bg-primary;
+}
+
+footer > div {
+  @extend .container;
+}
+
+footer p, footer a {
+  @extend .m-0, .text-center, .text-white;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}

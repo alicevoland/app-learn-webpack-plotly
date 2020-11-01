@@ -1,0 +1,38 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Mes roues de la vie </h1>
+      <p class="lead"> <%= @user.email %> </p>
+      <p class="lead d-flex">
+        <%= link_to "Retour sur mon profil", user_path(current_user), class: "btn btn-outline-primary btn-lg" %>
+        <%= link_to "Faire une nouvelle roue de la vie !", new_user_wheel_value_path(current_user), class: "btn btn-primary btn-lg ml-auto" %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<!-- container -->
+<div class="container">
+
+  <!-- row -->
+  <div class="row">
+
+    <!-- wheel_value -->
+    <% @user.wheel_values.each do |wheel_value| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> <%= wheel_value.wheel_model.name %> </h5>
+            <p class="card-text"> Date : <%= l wheel_value.created_at %> </p>
+            <%= link_to "Voir la roue", user_wheel_value_path(@user, wheel_value), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- /wheel_value -->
+
+  </div>
+  <!-- /row -->
+
+</div>
+<!-- /container -->

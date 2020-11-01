@@ -7,24 +7,34 @@
   </div>
 <% end %>
 
+<!-- container -->
 <div class="container">
 
-  <h2> Mes roues de la vie </h2>
+  <!-- row -->
+  <div class="row">
 
-  <table class="my-3">
-    <tbody>
-      <tr>
-        <th class="px-2"> Date </th>
-        <th class="px-2"> Modèle de roue </th>
-        <th class="px-2"> </th>
-      </tr>
-      <% @user.wheel_values.each do |wheel_value| %>
-        <tr>
-          <td class="px-2"> <%= l wheel_value.created_at %> </td>
-          <td class="px-2"> <%= link_to wheel_value.wheel_model.name, wheel_model_path(wheel_value.wheel_model) %> </td>
-          <td class="px-2"> <%= link_to "Voir la roue", user_wheel_value_path(@user, wheel_value), class: "btn btn-outline-primary" %> </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> Mes roues de la vie </h5>
+          <p class="card-text"> Faire une nouvelle roue de la vie ou bien consulter votre historique complet </p>
+          <%= link_to "Voir mes roues", user_wheel_values_path(@user), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> A venir </h5>
+          <p class="card-text"> Plein de nouvelles fonctionnalités à venir </p>
+          <%= link_to "Bientôt disponible...", root_path, class: "btn btn-primary disabled", disabled: true %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /row -->
+
 </div>
+<!-- /container -->

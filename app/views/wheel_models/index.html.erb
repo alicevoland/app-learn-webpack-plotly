@@ -3,20 +3,45 @@
     <div class="container">
       <h1 class="display-4">Les différents modèles </h1>
       <p class="lead"> Ce site vous permet de réaliser et suivre l'évolution de votre roue de la vie !</p>
+      <hr class="my-4">
+      <% if user_signed_in? %>
+        <p> Accédez à toutes les fonctionnalités à partir de votre espace personnel </p>
+        <p class="lead">
+          <%= link_to "Mon profil", user_path(current_user), class: "btn btn-primary btn-lg" %>
+        </p>
+      <% else %>
+        <p> Connectez vous (ou créez votre compte) pour accéder à toutes les fonctionnalités </p>
+        <p class="lead">
+          <%= link_to "Se connecter", new_user_session_path, class: "btn btn-primary btn-lg" %>
+        </p>
+      <% end %>
+
     </div>
   </div>
 <% end %>
 
+<!-- container -->
 <div class="container">
 
-  <h1> Les modèles de roue de la vie </h1>
+  <!-- row -->
+  <div class="row">
 
-  <% @wheel_models.each do |model| %>
+    <!-- wheel_value -->
+    <% @wheel_models.each do |model| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> <%= model.name %> </h5>
+            <p class="card-text"> <%= model.description %> </p>
+            <%= link_to "Détails du modèle", wheel_model_path(model), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- /wheel_value -->
 
-    <h2> <%= model.name %> </h2>
-    <p> <%= model.description %> </p>
-    <p> <%= link_to "Détails du modèle", wheel_model_path(model), class: "btn btn-outline-primary" %> </p>
-
-  <% end %>
+  </div>
+  <!-- /row -->
 
 </div>
+<!-- /container -->
