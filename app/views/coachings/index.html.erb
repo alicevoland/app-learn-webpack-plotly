@@ -1,2 +1,59 @@
-<h1>Coachings#index</h1>
-<p>Find me in app/views/coachings/index.html.erb</p>
+<% content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4"> Mes relation de coaching </h1>
+      <p class="lead"> <%= @user.email %> </p>
+      <p class="lead d-flex">
+        <%= link_to "Retour sur mon profil", user_path(current_user), class: "btn btn-outline-primary btn-lg" %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<!-- container -->
+<div class="container">
+
+  <h4 class="my-4"> Mes coachs </h4>
+
+  <!-- row -->
+  <div class="row">
+
+    <!-- wheel_value -->
+    <% @coaches.each do |coach| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> <%= coach.email %> </h5>
+            <p class="card-text"> Mon coach </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- /wheel_value -->
+
+  </div>
+  <!-- /row -->
+
+  <h4 class="my-4"> Mes élèves </h4>
+
+  <!-- row -->
+  <div class="row">
+
+    <!-- wheel_value -->
+    <% @students.each do |student| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> <%= student.email %> </h5>
+            <p class="card-text"> Mon élève </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- /wheel_value -->
+
+  </div>
+  <!-- /row -->
+
+</div>
+<!-- /container -->

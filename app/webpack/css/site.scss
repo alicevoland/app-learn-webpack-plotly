@@ -22,3 +22,7 @@ footer {
 .navbar {
   @extend .navbar-dark, .bg-primary;
 }
+
+.card {
+  @extend .my-2;
+}

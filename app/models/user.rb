@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   has_many :wheel_values
 
-  has_many :coach_coachings, foreign_key: :student_id, class_name: :Coaching
-  has_many :student_coachings, foreign_key: :coach_id, class_name: :Coaching
+  has_many :coach_coachings, foreign_key: :coach_id, class_name: :Coaching
+  has_many :student_coachings, foreign_key: :student_id, class_name: :Coaching
 
-  has_many :coaches, through: :student_coachings
   has_many :students, through: :coach_coachings
+  has_many :coaches, through: :student_coachings
 
   after_create :welcome_email
 

@@ -26,6 +26,16 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
+          <h5 class="card-title"> Mes relation de coaching </h5>
+          <p class="card-text"> Mes coachs et/ou mes élèves </p>
+          <%= link_to "Voir mes coachings", user_coachings_path(@user), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
           <h5 class="card-title"> A venir </h5>
           <p class="card-text"> Plein de nouvelles fonctionnalités à venir </p>
           <%= link_to "Bientôt disponible...", root_path, class: "btn btn-primary disabled", disabled: true %>

@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Coaching.destroy_all
 User.destroy_all
 WheelModel.destroy_all
 WheelValue.destroy_all
-Coaching.destroy_all
 puts 'DB cleaned up'
 
 ewen_user = User.create(email: 'ewencoach@yopmail.com', password: 'ewencoach')
