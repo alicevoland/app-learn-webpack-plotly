@@ -49,14 +49,15 @@ $(function () {
           type: 'scatterpolar',
           theta: wheel_model.labels.concat([wheel_model.labels[0]]),
           r: wheel_value.goal_values.concat([wheel_value.goal_values[0]]),
-          fill: 'toself',
+          // fill: 'toself',
           name: 'Objectif'
         }, {
           type: 'scatterpolar',
           theta: wheel_model.labels.concat([wheel_model.labels[0]]),
           r: wheel_value.current_values.concat([wheel_value.current_values[0]]),
           fill: 'toself',
-          name: 'Actuel'
+          name: 'Actuel',
+          marker: { color: "green" }
         }]
 
         var layout = {
