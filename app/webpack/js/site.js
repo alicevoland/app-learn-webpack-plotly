@@ -2,8 +2,37 @@ import 'jquery'
 import 'popper.js'
 import 'bootstrap'
 import 'plotly.js'
+import 'chart.js'
 
-global.Plotly = Plotly
+$(function () {
+  console.log("Document Ready! bis")
+
+  var options = {
+    scale: {
+      angleLines: {
+        display: false
+      },
+      ticks: {
+        suggestedMin: 50,
+        suggestedMax: 100
+      }
+    }
+  };
+  var data = {
+    labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+    datasets: [{
+      data: [20, 10, 4, 2]
+    }]
+  }
+  document.querySelectorAll(".wheel-model-chart canvas").forEach(div => {
+    console.log(div)
+    var myRadarChart = new Chart(div, {
+      type: 'radar',
+      data: data,
+      options: options
+    });
+  })
+})
 
 $(function () {
   console.log("Document Ready!")
@@ -74,6 +103,4 @@ $(function () {
       }
     });
   })
-
-
 })
