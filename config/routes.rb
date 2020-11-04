@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :wheel_models, only: %i[index show]
-  resources :users, only: %i[show] do
+  resources :users do
+    resources :users, only: %i[show]
     resources :wheel_values
     resources :coachings
   end

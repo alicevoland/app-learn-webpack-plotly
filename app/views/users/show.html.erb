@@ -1,7 +1,7 @@
 <% content_for :jumbotron do %>
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-4"> <%= @coach_view ? "Mon élève" : "Espace personnel" %> </h1>
+      <h1 class="display-4"> <%= coach_view? ? "Mon élève" : "Espace personnel" %> </h1>
       <p class="lead"> <%= @user.email %> </p>
     </div>
   </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <% unless @coach_view %>
+    <% if student_view? %>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">

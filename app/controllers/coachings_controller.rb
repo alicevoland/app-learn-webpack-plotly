@@ -1,4 +1,6 @@
 class CoachingsController < ApplicationController
+  include AuthorizedViewsHelper
+
   before_action :authenticate_user!
   before_action :is_my_profile
 
